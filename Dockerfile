@@ -7,9 +7,9 @@ RUN apt-get update && apt-get install -y \
         bzip2 \
     && rm -rf /var/lib/apt/lists/*
 
-ENV TSPK_VERSION            3.0.13.4
+ENV TSPK_VERSION            3.0.19.4
 ENV TSPK_DOWNLOAD_URL       http://dl.4players.de/ts/releases/$TSPK_VERSION/teamspeak3-server_linux_amd64-$TSPK_VERSION.tar.bz2
-ENV TSPK_DOWNLOAD_SHA256    cff353c3f395175ba251c787c5ca1cbb3d339be1ae1afe0cf10216a6e81ae5af
+ENV TSPK_DOWNLOAD_SHA256    f74617d2a2f5cb78e0ead345e6ee66c93e4a251355779018fd060828e212294a
 
 COPY ./initscript /usr/local/initscript
 RUN chmod 755 /usr/local/initscript
