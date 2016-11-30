@@ -19,6 +19,8 @@ RUN curl -fsSL "$TSPK_DOWNLOAD_URL" -o teamspeak3.tar.bz2 \
     && tar -C /usr/local -jxf teamspeak3.tar.bz2 \
     && rm teamspeak3.tar.bz2
 
+COPY ./ts3server.ini /usr/local/teamspeak3-server_linux_amd64/ts3server.ini
+
 EXPOSE 9987 10011 30033
     
 CMD ["/usr/local/initscript"]

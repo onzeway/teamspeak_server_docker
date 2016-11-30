@@ -1,26 +1,7 @@
 #!/bin/bash
 
 TS3_PATH="/usr/local/teamspeak3-server_linux_amd64"
-TS3_SCRIPT="ts3server_startscript.sh"
-
-shutdown() {
-    cd ${TS3_PATH}
-    /bin/bash ${TS3_SCRIPT} stop
-    sleep 1
-    exit
-}
+TS3_SCRIPT="ts3server_minimal_runscript.sh"
 
 cd ${TS3_PATH}
-/bin/bash ${TS3_SCRIPT} start &
-
-trap shutdown SIGTERM SIGHUP SIGINT
-
-sleep 5
-
-wait
-
-/usr/bin/tail -f $(ls -1t ${TS3_PATH}/logs/* | head -1) &
-
-wait
-
-exit
+/bin/bash ${TS3_SCRIPT} inifile=ts3server.ini
