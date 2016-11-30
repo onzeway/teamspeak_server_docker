@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
         curl \
         tar \
         bzip2 \
+        libmariadb2 \
     && rm -rf /var/lib/apt/lists/*
 
 ENV TSPK_VERSION            3.0.13.6
@@ -20,6 +21,7 @@ RUN curl -fsSL "$TSPK_DOWNLOAD_URL" -o teamspeak3.tar.bz2 \
     && rm teamspeak3.tar.bz2
 
 COPY ./ts3server.ini /usr/local/teamspeak3-server_linux_amd64/ts3server.ini
+COPY ./ts3db_mariadb.ini /usr/local/teamspeak3-server_linux_amd64/ts3db_mariadb.ini
 
 EXPOSE 9987 10011 30033
     
